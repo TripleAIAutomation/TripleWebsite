@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <!-- n8n workflow nodes logo -->
+  <g fill="#EA4B71" stroke="#EA4B71" stroke-width="6">
+    <!-- Left node -->
+    <circle cx="20" cy="50" r="12" fill="none"/>
+    <!-- Middle-left node -->
+    <circle cx="45" cy="50" r="8" fill="#EA4B71"/>
+    <!-- Center node -->
+    <circle cx="70" cy="50" r="12" fill="none"/>
+    <!-- Top-right node -->
+    <circle cx="100" cy="30" r="8" fill="none"/>
+    <!-- Bottom-right node -->
+    <circle cx="100" cy="70" r="12" fill="none"/>
+
+    <!-- Connections -->
+    <line x1="32" y1="50" x2="37" y2="50" stroke-width="6"/>
+    <line x1="53" y1="50" x2="58" y2="50" stroke-width="6"/>
+    <line x1="80" y1="44" x2="92" y2="34" stroke-width="6"/>
+    <line x1="80" y1="56" x2="90" y2="66" stroke-width="6"/>
+  </g>
+</svg>

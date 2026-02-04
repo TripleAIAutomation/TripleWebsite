@@ -1,0 +1,10 @@
+<svg width="640" height="240" viewBox="0 0 640 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="240" rx="36" fill="#0B0F14"/>
+  <g transform="translate(0,0)">
+    <path d="M58 76H182" stroke="#22D3EE" stroke-width="14" stroke-linecap="round"/>
+    <path d="M72 98H168" stroke="#22D3EE" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+    <path d="M90 120H150" stroke="#22D3EE" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+    <path d="M120 120V182" stroke="#22D3EE" stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <text x="210" y="144" fill="#E5E7EB" font-size="64" font-weight="700" font-family="Geist, 'Geist Sans', Arial, sans-serif">riple</text>
+</svg>

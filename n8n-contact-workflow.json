@@ -1,0 +1,138 @@
+{
+  "name": "TripleSystems Contact Form",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-form",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "contact-form"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ {\"success\": true, \"message\": \"Contact form received\"} }",
+        "options": {}
+      },
+      "id": "respond-ok",
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "tableId": "crm_leads",
+        "dataToSend": "defineBelow",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "name",
+              "fieldValue": "={{ $json.body.name }}"
+            },
+            {
+              "fieldName": "email",
+              "fieldValue": "={{ $json.body.email }}"
+            },
+            {
+              "fieldName": "company",
+              "fieldValue": "={{ $json.body.company }}"
+            },
+            {
+              "fieldName": "role",
+              "fieldValue": "={{ $json.body.role }}"
+            },
+            {
+              "fieldName": "need",
+              "fieldValue": "={{ $json.body.need }}"
+            },
+            {
+              "fieldName": "notes",
+              "fieldValue": "={{ $json.body.notes }}"
+            },
+            {
+              "fieldName": "source",
+              "fieldValue": "={{ $json.body.source }}"
+            },
+            {
+              "fieldName": "created_at",
+              "fieldValue": "={{ $json.body.timestamp }}"
+            }
+          ]
+        }
+      },
+      "id": "supabase-insert",
+      "name": "Insert Lead into Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [680, 200],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "tripleaiagents@gmail.com",
+        "subject": "=New Lead: {{ $('Webhook').item.json.body.name }} ({{ $('Webhook').item.json.body.company }})",
+        "emailType": "html",
+        "message": "=<h2>New Contact Form Submission</h2><table style=\"border-collapse:collapse;width:100%;font-family:sans-serif;\"><tr style=\"background:#f4f4f4;\"><td style=\"padding:10px;font-weight:bold;border:1px solid #ddd;\">Name</td><td style=\"padding:10px;border:1px solid #ddd;\">{{ $('Webhook').item.json.body.name }}</td></tr><tr><td style=\"padding:10px;font-weight:bold;border:1px solid #ddd;\">Email</td><td style=\"padding:10px;border:1px solid #ddd;\"><a href=\"mailto:{{ $('Webhook').item.json.body.email }}\">{{ $('Webhook').item.json.body.email }}</a></td></tr><tr style=\"background:#f4f4f4;\"><td style=\"padding:10px;font-weight:bold;border:1px solid #ddd;\">Company</td><td style=\"padding:10px;border:1px solid #ddd;\">{{ $('Webhook').item.json.body.company }}</td></tr><tr><td style=\"padding:10px;font-weight:bold;border:1px solid #ddd;\">Role</td><td style=\"padding:10px;border:1px solid #ddd;\">{{ $('Webhook').item.json.body.role }}</td></tr><tr style=\"background:#f4f4f4;\"><td style=\"padding:10px;font-weight:bold;border:1px solid #ddd;\">Need</td><td style=\"padding:10px;border:1px solid #ddd;\">{{ $('Webhook').item.json.body.need }}</td></tr><tr><td style=\"padding:10px;font-weight:bold;border:1px solid #ddd;\">Description</td><td style=\"padding:10px;border:1px solid #ddd;\">{{ $('Webhook').item.json.body.description }}</td></tr><tr style=\"background:#f4f4f4;\"><td style=\"padding:10px;font-weight:bold;border:1px solid #ddd;\">Timestamp</td><td style=\"padding:10px;border:1px solid #ddd;\">{{ $('Webhook').item.json.body.timestamp }}</td></tr></table>",
+        "options": {}
+      },
+      "id": "gmail-send",
+      "name": "Send Email Notification",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [680, 400],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond OK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond OK": {
+      "main": [
+        [
+          {
+            "node": "Insert Lead into Supabase",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send Email Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": []
+}
