@@ -16,13 +16,21 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <div className="section-divider" />
         <ProblemSolution />
+        <div className="section-divider" />
         <Services />
+        <div className="section-divider" />
         <UseCases />
+        <div className="section-divider" />
         <ProductShowcase />
+        <div className="section-divider" />
         <Process />
+        <div className="section-divider" />
         <About />
+        <div className="section-divider" />
         <FAQ />
+        <div className="section-divider" />
         <Contact />
       </main>
       <Footer />

@@ -137,19 +137,17 @@ export default function ProductShowcase() {
     <section id="product" className="section-padding relative">
       <div className="container-custom">
         {/* Section header */}
-        <ScrollReveal>
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-sm font-semibold text-accent-400 uppercase tracking-wider">
-            Portfolio
-          </span>
-          <h2 className="heading-2 text-gray-100 mt-2 mb-4">
-            See What We&apos;ve <span className="text-accent-400">Built</span>
-          </h2>
-          <p className="text-body">
-            An internal project we developed to showcase what&apos;s possible —
-            a fully functional business platform with CRM, analytics, and automation.
-          </p>
-        </div>
+        <ScrollReveal variant="fade-left">
+          <div className="max-w-3xl mb-16">
+            <span className="font-mono text-sm text-accent-400 tracking-widest uppercase">{'// Portfolio'}</span>
+            <h2 className="heading-2 text-gray-100 mt-2">
+              See What We&apos;ve <span className="text-accent-400">Built</span>
+            </h2>
+            <p className="text-body mt-4">
+              An internal project we developed to showcase what&apos;s possible —
+              a fully functional business platform with CRM, analytics, and automation.
+            </p>
+          </div>
         </ScrollReveal>
 
         {/* Interactive Demo */}
@@ -233,25 +231,28 @@ export default function ProductShowcase() {
           </div>
 
           {/* Glow effect */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-accent-500/20 to-electric-500/20 rounded-3xl -z-10 blur-3xl opacity-30" />
+          <div className="absolute -inset-4 bg-gradient-to-r from-accent-500/20 to-violet-500/20 rounded-3xl -z-10 blur-3xl opacity-30" />
         </div>
         </ScrollReveal>
 
         {/* Features grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <ScrollReveal key={index} delay={index * 100}>
-            <div
-              className="group p-6 rounded-xl border border-transparent hover:border-gray-800/50 hover:bg-dark-800/30 transition-all duration-300"
-            >
-              <div className="w-12 h-12 bg-accent-500/10 text-accent-400 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent-500/20 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] transition-all">
-                {feature.icon}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {features.map((feature, index) => {
+            const isWide = index === 0 || index === 5;
+            return (
+              <div key={index} className={isWide ? 'sm:col-span-2' : ''}>
+                <ScrollReveal delay={index * 100} variant={index === 0 ? 'scale-up' : 'fade-up'}>
+                  <div className="group p-6 rounded-xl border border-gray-800/30 hover:border-accent-500/20 bg-dark-800/20 hover:bg-dark-800/40 transition-all duration-500 h-full">
+                    <div className="w-12 h-12 bg-accent-500/10 text-accent-400 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">
+                      {feature.icon}
+                    </div>
+                    <h3 className="heading-3 text-gray-100 mb-2">{feature.title}</h3>
+                    <p className="text-gray-400">{feature.description}</p>
+                  </div>
+                </ScrollReveal>
               </div>
-              <h3 className="heading-3 text-gray-100 mb-2">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
-            </div>
-            </ScrollReveal>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

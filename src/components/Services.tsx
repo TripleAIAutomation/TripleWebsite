@@ -61,36 +61,40 @@ const services = [
 ];
 
 export default function Services() {
+  const variants = ['fade-left', 'fade-right'] as const;
+
   return (
     <section id="services" className="section-padding relative">
       <div className="container-custom">
-        {/* Section header */}
-        <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="heading-2 text-gray-100 mb-4">
+        {/* Section header - left aligned */}
+        <ScrollReveal variant="fade-left">
+          <div className="max-w-3xl mb-16">
+            <span className="font-mono text-sm text-accent-400 tracking-widest uppercase">{'// Services'}</span>
+            <h2 className="heading-2 text-gray-100 mt-2">
               What we <span className="text-accent-400">build.</span>
             </h2>
-            <p className="text-body">
+            <p className="text-body mt-4">
               Custom solutions for your business – from complete platforms to
               individual automations.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Services cards */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Services cards - asymmetric 5-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {services.map((service, index) => (
-            <ScrollReveal key={index} delay={index * 200}>
+            <div key={index} className={index === 0 ? 'lg:col-span-3' : 'lg:col-span-2'}>
+            <ScrollReveal delay={index * 200} variant={variants[index]}>
             <div
               className="glass-card p-8 hover:border-accent-500/30 transition-all duration-300 group relative overflow-hidden h-full"
             >
               {/* Background glow on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 via-transparent to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative">
                 {/* Icon & Title */}
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-14 h-14 bg-accent-500/10 text-accent-400 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-accent-500/20 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.2)] transition-all">
+                  <div className="w-14 h-14 bg-accent-500/10 text-accent-400 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-accent-500/20 group-hover:shadow-[0_0_25px_rgba(245,158,11,0.2)] transition-all">
                     {service.icon}
                   </div>
                   <div>
@@ -111,7 +115,7 @@ export default function Services() {
                       key={i}
                       className="bg-accent-500/10 border border-accent-500/20 rounded-lg px-3 py-2 text-center"
                     >
-                      <span className="text-accent-400 font-bold text-sm">{stat.value}</span>
+                      <span className="text-accent-400 font-bold font-mono text-sm">{stat.value}</span>
                       <span className="text-gray-400 text-sm ml-1">{stat.label}</span>
                     </div>
                   ))}
@@ -141,6 +145,7 @@ export default function Services() {
               </div>
             </div>
             </ScrollReveal>
+            </div>
           ))}
         </div>
 

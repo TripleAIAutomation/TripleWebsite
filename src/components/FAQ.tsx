@@ -37,15 +37,14 @@ export default function FAQ() {
     <section id="faq" className="section-padding relative">
       <div className="container-custom">
         {/* Section header */}
-        <ScrollReveal>
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="heading-2 text-gray-100 mb-4">
-            Frequently Asked <span className="text-accent-400">Questions</span>
-          </h2>
-          <p className="text-body">
-            Everything you need to know before working with us.
-          </p>
-        </div>
+        <ScrollReveal variant="blur-in">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <span className="font-mono text-sm text-accent-400 tracking-widest uppercase">{'// FAQ'}</span>
+            <h2 className="heading-2 text-gray-100 mt-2">
+              Frequently Asked <span className="text-accent-400">Questions</span>
+            </h2>
+            <p className="text-body mt-4">Everything you need to know before working with us.</p>
+          </div>
         </ScrollReveal>
 
         {/* FAQ items */}
@@ -53,15 +52,17 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <ScrollReveal key={index} delay={index * 100}>
             <div
-              className="glass-card overflow-hidden transition-all duration-300"
+              className={`glass-card overflow-hidden hover:bg-dark-800/30 transition-all duration-300 ${
+                openIndex === index ? 'border-l-2 border-l-accent-500' : ''
+              }`}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left"
               >
-                <span className="font-medium text-gray-100 pr-4">{faq.question}</span>
+                <span className={`font-medium pr-4 ${openIndex === index ? 'text-accent-400' : 'text-gray-100'}`}>{faq.question}</span>
                 <svg
-                  className={`w-5 h-5 text-accent-400 shrink-0 transition-transform duration-300 ${
+                  className={`w-5 h-5 text-accent-400 shrink-0 transition-transform duration-500 ease-out ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                   fill="none"

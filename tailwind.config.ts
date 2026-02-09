@@ -9,32 +9,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark backgrounds
+        // Dark backgrounds - richer, warm undertone
         dark: {
-          950: '#030712',
-          900: '#0a0f1a',
-          800: '#111827',
-          700: '#1a2332',
-          600: '#243044',
+          950: '#050505',
+          900: '#0c0a09',
+          800: '#1c1917',
+          700: '#292524',
+          600: '#3f3a36',
         },
-        // Cyan/Teal accent - high-tech glow
+        // Primary accent: Amber/Gold
         accent: {
-          50: '#ecfeff',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#06b6d4',
-          600: '#0891b2',
-          700: '#0e7490',
-          800: '#155e75',
-          900: '#164e63',
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
         },
-        // Secondary accent - electric blue
-        electric: {
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
+        // Secondary accent: Violet
+        violet: {
+          400: '#a78bfa',
+          500: '#8b5cf6',
+          600: '#7c3aed',
         },
       },
       fontFamily: {
@@ -57,12 +57,12 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(6, 182, 212, 0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(6, 182, 212, 0.6)' },
+          '0%': { boxShadow: '0 0 20px rgba(245, 158, 11, 0.3)' },
+          '100%': { boxShadow: '0 0 40px rgba(245, 158, 11, 0.6)' },
         },
       },
       backgroundImage: {
-        'grid-pattern': 'linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px)',
+        'grid-pattern': 'linear-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(245, 158, 11, 0.03) 1px, transparent 1px)',
         'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
       },
       backgroundSize: {

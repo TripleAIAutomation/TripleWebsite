@@ -79,15 +79,14 @@ export default function Contact() {
       <div className="container-custom">
         <div className="max-w-2xl mx-auto">
           {/* Section header */}
-          <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="heading-2 text-gray-100 mb-4">
-              Let&apos;s <span className="text-accent-400">talk</span>
-            </h2>
-            <p className="text-body">
-              Ready to automate your business? Reach out – we&apos;ll get back to you.
-            </p>
-          </div>
+          <ScrollReveal variant="fade-right">
+            <div className="text-right mb-12">
+              <span className="font-mono text-sm text-accent-400 tracking-widest uppercase">{'// Contact'}</span>
+              <h2 className="heading-2 text-gray-100 mt-2">
+                Let&apos;s <span className="text-accent-400">talk</span>
+              </h2>
+              <p className="text-body mt-4">Ready to automate your business? Reach out – we&apos;ll get back to you.</p>
+            </div>
           </ScrollReveal>
 
           {/* Form */}
@@ -95,7 +94,7 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block font-mono text-xs uppercase tracking-wider text-gray-400 mb-2">
                   Name
                 </label>
                 <input
@@ -110,7 +109,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block font-mono text-xs uppercase tracking-wider text-gray-400 mb-2">
                   Email
                 </label>
                 <input
@@ -128,7 +127,7 @@ export default function Contact() {
 
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="company" className="block font-mono text-xs uppercase tracking-wider text-gray-400 mb-2">
                   Company
                 </label>
                 <input
@@ -143,7 +142,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="role" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="role" className="block font-mono text-xs uppercase tracking-wider text-gray-400 mb-2">
                   Role / Position
                 </label>
                 <input
@@ -160,7 +159,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="need" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="need" className="block font-mono text-xs uppercase tracking-wider text-gray-400 mb-2">
                 What do you need?
               </label>
               <select
@@ -180,7 +179,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="notes" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="notes" className="block font-mono text-xs uppercase tracking-wider text-gray-400 mb-2">
                 Short Description
               </label>
               <textarea

@@ -50,43 +50,38 @@ export default function Process() {
       <div className="absolute inset-0 bg-grid opacity-20 -z-10" />
 
       <div className="container-custom">
-        {/* Section header */}
-        <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="heading-2 text-gray-100 mb-4">
+        {/* Section header - LEFT aligned */}
+        <ScrollReveal variant="fade-left">
+          <div className="max-w-3xl mb-16">
+            <span className="font-mono text-sm text-accent-400 tracking-widest uppercase">{'// Process'}</span>
+            <h2 className="heading-2 text-gray-100 mt-2">
               How We <span className="text-accent-400">Work</span>
             </h2>
-            <p className="text-body">
-              A straightforward process from first call to launch.
-            </p>
           </div>
         </ScrollReveal>
 
-        {/* Process steps */}
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-6">
-            {steps.map((step, index) => (
-              <ScrollReveal key={index} delay={index * 150}>
-              <div
-                className="glass-card p-6 hover:border-accent-500/30 transition-all duration-300 group relative h-full"
-              >
-                {/* Step number */}
-                <div className="absolute top-6 right-6 text-4xl font-bold text-dark-700 group-hover:text-accent-500/20 transition-colors">
-                  {step.number}
+        {/* Timeline */}
+        <div className="max-w-3xl mx-auto">
+          {steps.map((step, index) => (
+            <ScrollReveal key={index} delay={index * 150} variant={index % 2 === 0 ? 'fade-left' : 'fade-right'}>
+              <div className="relative flex gap-6 sm:gap-8">
+                {/* Timeline connector */}
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-accent-500/10 border border-accent-500/20 flex items-center justify-center text-accent-400 font-mono font-bold text-sm shrink-0 group-hover:bg-accent-500/20 transition-all">
+                    {step.number}
+                  </div>
+                  {index < steps.length - 1 && (
+                    <div className="w-px flex-1 min-h-[60px] bg-gradient-to-b from-accent-500/20 to-transparent" />
+                  )}
                 </div>
-
-                {/* Icon */}
-                <div className="w-12 h-12 bg-accent-500/10 text-accent-400 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent-500/20 transition-all">
-                  {step.icon}
-                </div>
-
                 {/* Content */}
-                <h3 className="heading-3 text-gray-100 mb-2">{step.title}</h3>
-                <p className="text-gray-400 text-sm">{step.description}</p>
+                <div className="pb-12">
+                  <h3 className="heading-3 text-gray-100 mb-2">{step.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
+                </div>
               </div>
-              </ScrollReveal>
-            ))}
-          </div>
+            </ScrollReveal>
+          ))}
         </div>
 
         {/* CTA */}

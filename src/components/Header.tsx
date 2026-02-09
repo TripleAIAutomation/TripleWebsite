@@ -16,7 +16,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-dark-950/80 backdrop-blur-xl border-b border-gray-800/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-dark-950/80 backdrop-blur-xl border-b border-gray-800/30">
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
@@ -26,7 +26,7 @@ export default function Header() {
               alt="TripleSystems Logo"
               width={32}
               height={32}
-              className="drop-shadow-[0_0_8px_rgba(6,182,212,0.4)] group-hover:drop-shadow-[0_0_12px_rgba(6,182,212,0.6)] transition-all"
+              className="drop-shadow-[0_0_8px_rgba(245,158,11,0.4)] group-hover:drop-shadow-[0_0_12px_rgba(245,158,11,0.6)] transition-all"
             />
             <span className="font-semibold text-xl text-gray-100">TripleSystems</span>
           </Link>
@@ -84,7 +84,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800/50">
+          <div className="md:hidden py-4 border-t border-gray-800/30 bg-dark-950/95 backdrop-blur-xl">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
