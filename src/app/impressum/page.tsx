@@ -28,11 +28,8 @@ export default function Impressum() {
             <section>
               <h2 className="heading-3 text-gray-100 mb-4">Information according to § 5 DDG</h2>
               <div className="text-gray-400 space-y-1">
-                <p>Deniz Granito</p>
+                <p>Deniz</p>
                 <p>TripleSystems</p>
-                <p>Theresienstr. 18</p>
-                <p>87629 Füssen</p>
-                <p>Germany</p>
               </div>
             </section>
 
@@ -50,9 +47,7 @@ export default function Impressum() {
                 Responsible for content according to § 18 Abs. 2 MStV
               </h2>
               <div className="text-gray-400 space-y-1">
-                <p>Deniz Granito</p>
-                <p>Theresienstr. 18</p>
-                <p>87629 Füssen</p>
+                <p>Deniz</p>
               </div>
             </section>
 
