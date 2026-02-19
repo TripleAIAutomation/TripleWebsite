@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
 
@@ -37,6 +38,13 @@ export default function RootLayout({
       >
         {children}
         <CookieBanner />
+        <Script
+          id="vtag-ai-js"
+          src="https://r2.leadsy.ai/tag.js"
+          data-pid="3IfQbeJX2KN0Vp4pFV"
+          data-version="062024"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
