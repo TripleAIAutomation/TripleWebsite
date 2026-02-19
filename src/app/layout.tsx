@@ -33,18 +33,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          id="vtag-ai-js"
+          async
+          src="https://r2.leadsy.ai/tag.js"
+          data-pid="3IfQbeJX2KN0Vp4pFV"
+          data-version="062024"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         {children}
         <CookieBanner />
-        <Script
-          id="vtag-ai-js"
-          src="https://r2.leadsy.ai/tag.js"
-          data-pid="3IfQbeJX2KN0Vp4pFV"
-          data-version="062024"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );
