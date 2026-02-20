@@ -40,11 +40,8 @@ export default function Datenschutz() {
             <section>
               <h2 className="heading-3 text-gray-100 mb-4">2. Data Controller</h2>
               <div className="text-gray-400 space-y-1">
-                <p>Deniz Granito</p>
+                <p>Deniz</p>
                 <p>TripleSystems</p>
-                <p>Theresienstr. 18</p>
-                <p>87629 Füssen</p>
-                <p>Germany</p>
                 <p className="mt-4">Email: tripleaiagents@gmail.com</p>
               </div>
               <p className="text-gray-400 mt-4">
